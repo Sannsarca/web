@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../static/main.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login">
+			<div class="wrap-login">
+
+				<form class="login-form" id="form">
+					<span class="login-form-title p-b-25">
+						JokeF!!!
+					</span>
+
+					<div class="wrap-input" >
+						<input id="joke" class="input" type="text" name="joke" placeholder="Write your joke">
+					</div>
+
+					<ul class="list-group" id="joke_container">
+					</ul>
+
+					<div class="container-login-form-btn">
+						<div class="wrap-login-form-btn">
+							<div class="login-form-bgbtn"></div>
+							<button class="login-form-btn" id="button" type="button">
+								Commit joke
+							</button>
+						</div>
+					</div>
+				</form>
+
+				<form class="login-form" action="/exit" >
+					<div class="container-login-form-btn">
+						<div class="wrap-login-form-btn">
+							<div class="login-form-bgbtn"></div>
+							<button class="login-form-btn" href="index.html">
+								Exit
+							</button>
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+
+		</div>
+	</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded",async () => {
+
+	await fetch('/submit')
+      .then(function (response) {
+          console.log(response.json());
+      }).then(function (text) {
+          console.log('GET response:');
+          console.log(text.greeting);
+      });
+
+    document.getElementById('button').addEventListener('click', () => {
+        const newJoke = document.getElementById('joke').value
+		const oldHTML = document.getElementById('joke_container').innerHTML
+		document.getElementById('joke_container').innerHTML = oldHTML + `<li class="list-group-item">${newJoke}</li>`
+
+        const jokes = JSON.parse(localStorage.getItem('jokes'));
+
+        // localStorage.setItem('jokes', JSON.stringify([newJoke]));
+
+        localStorage.setItem('jokes', JSON.stringify([...jokes, newJoke]));
+
+
+
+        // // Put the object into storage
+        // localStorage.setItem('jokes', JSON.stringify(testObject));
+
+        console.log('retrievedObject: ', JSON.parse(localStorage.getItem('jokes')));
+    })
+})
+</script>
+
+
+</body>
+</html>

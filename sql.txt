@@ -1,0 +1,44 @@
+﻿/*
+-- Database: Data
+
+-- DROP DATABASE "Data";
+
+CREATE DATABASE "Data"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Ukrainian_Ukraine.1252'
+    LC_CTYPE = 'Ukrainian_Ukraine.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+DROP TABLE users;
+
+CREATE TABLE users(
+	user_id serial PRIMARY KEY,
+	login varchar(64) NOT NULL,
+	pass varchar(64) NOT NULL,
+	user_role varchar(10) NOT NULL,
+	created_time timestamp NOT NULL,
+	last_login timestamp DEFAULT NOW()
+);
+
+INSERT INTO users(login,pass,user_role,created_time,last_login) VALUES('sannsarca@gmail.com','qwerty','admin',NOW(),NOW());
+
+SELECT * FROM users;
+
+DROP TABLE jokes;
+
+CREATE TABLE jokes(
+	joke_id serial PRIMARY KEY,
+	joke_content jsonb NOT NULL
+);
+
+INSERT INTO jokes(joke_content) VALUES('{"text":"Як би звали Путіна якби він був морським створінням? - Хуйлобстер","author":1}');
+
+SELECT * FROM jokes WHERE joke_content @> '{"author":1}';
+
+SELECT * FROM jokes;
+
+*/ INTO users(login,pass,user_role,created_time,last_login) VALUES('sas@gmail.com','qwerty123','admin',NOW(),NOW());
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../static/main.css">
+</head>
+<body>
+	<div class="limiter">
+		<div class="container-login">
+			<div class="wrap-login">
+				<form  action="/register" method='POST' class="login-form">
+					<span class="login-form-title p-b-25">
+						Welcome to JokeF
+					</span>
+
+					<div class="wrap-input">
+						<input class="input" type="text" name="login"  placeholder="Login">
+					</div>
+
+					<div class="wrap-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+						</span>
+						<input class="input" type="password" name="password"  placeholder="Password">
+					</div>
+
+                    <div class="wrap-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+						</span>
+						<input class="input" type="password"  name="repeat"  placeholder="Repeat password">
+					</div>
+
+					<div class="container-login-form-btn">
+						<div class="wrap-login-form-btn">
+							<div class="login-form-bgbtn"></div>
+							<button class="login-form-btn" href="index.html">
+								Register
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-25">
+						{% if message %}
+						<span class="txt3">
+      						{{ message | safe }}
+						</span>
+						{% endif %}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>`
