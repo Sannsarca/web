@@ -35,7 +35,7 @@ conn=connect_to_DB()
 
 @app.route('/')
 def index():
-    return render_template('JokeF.html',message='')
+    return render_template('index.html',message='')
 
 @app.route('/redirerct')
 def index_register():
