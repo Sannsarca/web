@@ -97,27 +97,6 @@ def submit():
             if conn:
                 cur.close()
                 print("PostgreSQL connection is closed")
-        """
-        joke = request.form['joke']
-        
-        try:
-            conn = connect_to_DB()
-            cur = conn.cursor()
-            insert_query = "INSERT INTO jokes(joke_content) VALUES(\'{\"text\":\"%s\",\"author\":%s}\');" % (
-            str(joke), you.user_id)
-            print(insert_query)
-            cur.execute(insert_query)
-            conn.commit()
-
-        except (Exception, psycopg2.Error) as error:
-            print("Failed to insert record into mobile table", error)
-
-        finally:
-            if conn:
-                cur.close()
-                print("PostgreSQL connection is closed")
-        """
-
     return str(all)
 
 @app.route('/register',methods=['POST'])
@@ -176,9 +155,6 @@ def joke():
                 print("PostgreSQL connection is closed")
     return jsonify(msg='success')
 """
-
-
-
 
 if __name__=="__main__":
     app.run(debug=True)
