@@ -53,13 +53,13 @@
 <script>
 	document.addEventListener("DOMContentLoaded",async () => {
 
-	await fetch('/submit')
-      .then(function (response) {
-          console.log(response.json());
-      }).then(function (text) {
-          console.log('GET response:');
-          console.log(text.greeting);
-      });
+<!--	await fetch('/submit')-->
+<!--      .then(function (response) {-->
+<!--          console.log(response.json());-->
+<!--      }).then(function (text) {-->
+<!--          console.log('GET response:');-->
+<!--          console.log(text.greeting);-->
+<!--      });-->
 
     document.getElementById('button').addEventListener('click', () => {
         const newJoke = document.getElementById('joke').value
