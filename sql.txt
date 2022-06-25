@@ -40,5 +40,6 @@ SELECT * FROM jokes WHERE joke_content @> '{"author":1}';
 
 SELECT * FROM jokes;
 
-*/ INTO users(login,pass,user_role,created_time,last_login) VALUES('sas@gmail.com','qwerty123','admin',NOW(),NOW());
+INTO users(login,pass,user_role,created_time,last_login) VALUES('sas@gmail.com','qwerty123','admin',NOW(),NOW());
 
+*/
